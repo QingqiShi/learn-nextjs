@@ -1,7 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "prepare": "panda codegen",
     "build": "next build",
     "dev": "next dev",
     "prettier": "prettier --write --ignore-unknown .",
@@ -25,7 +24,6 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.21.0",
     "@stylexjs/babel-plugin": "^0.4.1",
     "@stylexjs/eslint-plugin": "^0.4.1",
     "@stylexjs/nextjs-plugin": "^0.4.1",
