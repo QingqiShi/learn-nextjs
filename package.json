@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "prepare": "panda codegen",
     "build": "next build",
     "dev": "next dev",
     "prettier": "prettier --write --ignore-unknown .",
@@ -24,6 +25,11 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@pandacss/dev": "^0.21.0",
+    "@stylexjs/babel-plugin": "^0.4.1",
+    "@stylexjs/eslint-plugin": "^0.4.1",
+    "@stylexjs/nextjs-plugin": "^0.4.1",
+    "@stylexjs/stylex": "^0.4.1",
     "@types/bcrypt": "^5.0.1",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.14",
@@ -37,5 +43,6 @@
   },
   "engines": {
     "node": ">=18.17.0"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }
