@@ -1,20 +1,24 @@
+import * as stylex from '@stylexjs/stylex';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { LatestInvoice } from '@/app/lib/definitions';
-export default async function LatestInvoices({
-  latestInvoices,
-}: {
-  latestInvoices: LatestInvoice[];
-}) {
+import { Breakpoints } from '../breakpoints';
+import { twSizes } from '../tw.stylex';
+import { fonts } from '../fonts';
+import { fetchLatestInvoices } from '@/app/lib/data';
+
+export default async function LatestInvoices() {
+  const latestInvoices = await fetchLatestInvoices();
+
   return (
     <div className="flex w-full flex-col md:col-span-4">
-      {/* ${lusitana.className} */}
-      <h2 className={`mb-4 text-xl md:text-2xl`}>Latest Invoices</h2>
+      <h2 {...stylex.props(fonts.lusitanaFont, styles.title)}>
+        Latest Invoices
+      </h2>
       <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
         {/* NOTE: comment in this code when you get to this point in the course */}
 
-        {/* <div className="bg-white px-6">
+        <div className="bg-white px-6">
           {latestInvoices.map((invoice, i) => {
             return (
               <div
@@ -43,15 +47,13 @@ export default async function LatestInvoices({
                     </p>
                   </div>
                 </div>
-                <p
-                  className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
-                >
+                <p {...stylex.props(fonts.lusitanaFont, styles.amount)}>
                   {invoice.amount}
                 </p>
               </div>
             );
           })}
-        </div> */}
+        </div>
         <div className="flex items-center pb-2 pt-6">
           <ArrowPathIcon className="h-5 w-5 text-gray-500" />
           <h3 className="ml-2 text-sm text-gray-500 ">Updated just now</h3>
@@ -60,3 +62,21 @@ export default async function LatestInvoices({
     </div>
   );
 }
+
+const md: Breakpoints['md'] = '@media (min-width: 768px)';
+
+const styles = stylex.create({
+  title: {
+    fontSize: { default: '1.25rem', [md]: '1.5rem' },
+    lineHeight: { default: '1.75rem', [md]: '2rem' },
+    marginBottom: twSizes['4'],
+  },
+  amount: {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    fontSize: { default: '0.875rem', [md]: '1rem' },
+    lineHeight: { default: '1.25rem', [md]: '1.5rem' },
+    fontWeight: 500,
+  },
+});

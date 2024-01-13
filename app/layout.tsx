@@ -1,6 +1,16 @@
 import '@/app/ui/global.css';
 import * as stylex from '@stylexjs/stylex';
 import { fonts } from './ui/fonts';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Acme Dashboard',
+    default: 'Acme Dashboard',
+  },
+  description: 'The official Next.js Course Dashboard, built with App Router.',
+  metadataBase: new URL('https://learn-nextjs-self-three.vercel.app'),
+};
 
 export default function RootLayout({
   children,

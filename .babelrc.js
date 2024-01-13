@@ -1,5 +1,14 @@
 module.exports = {
-  presets: ['next/babel'],
+  presets: [
+    [
+      'next/babel',
+      {
+        'preset-env': {
+          targets: { chrome: 117 },
+        },
+      },
+    ],
+  ],
   plugins: [
     [
       '@stylexjs/babel-plugin',
