@@ -4,45 +4,11 @@ import * as stylex from '@stylexjs/stylex';
 import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { fonts } from './ui/fonts';
-// import { lusitana } from './ui/fonts';
+import { Metadata } from 'next';
 
-const styles = stylex.create({
-  shape: {
-    height: '0',
-    width: '0',
-    borderStyle: 'solid',
-    borderBottomWidth: '30px',
-    borderBottomColor: 'black',
-    borderLeftWidth: '20px',
-    borderLeftColor: 'transparent',
-    borderRightWidth: '20px',
-    borderRightColor: 'transparent',
-  },
-  title: {
-    fontSize: {
-      default: '1.25rem',
-      '@media (min-width: 768px)': '1.875rem',
-    },
-    lineHeight: {
-      default: '1.75rem',
-      '@media (min-width: 768px)': '2.25rem',
-    },
-    color: 'rgb(31 41 55 / 1)',
-    margin: '0',
-  },
-  desktopHero: {
-    display: {
-      default: 'none',
-      '@media (min-width: 768px)': 'block',
-    },
-  },
-  mobileHero: {
-    display: {
-      default: 'block',
-      '@media (min-width: 768px)': 'none',
-    },
-  },
-});
+export const metadata: Metadata = {
+  title: 'Dashboard',
+};
 
 export default function Page() {
   return (
@@ -88,3 +54,41 @@ export default function Page() {
     </main>
   );
 }
+
+const styles = stylex.create({
+  shape: {
+    height: '0',
+    width: '0',
+    borderStyle: 'solid',
+    borderBottomWidth: '30px',
+    borderBottomColor: 'black',
+    borderLeftWidth: '20px',
+    borderLeftColor: 'transparent',
+    borderRightWidth: '20px',
+    borderRightColor: 'transparent',
+  },
+  title: {
+    fontSize: {
+      default: '1.25rem',
+      '@media (min-width: 768px)': '1.875rem',
+    },
+    lineHeight: {
+      default: '1.75rem',
+      '@media (min-width: 768px)': '2.25rem',
+    },
+    color: 'rgb(31 41 55 / 1)',
+    margin: '0',
+  },
+  desktopHero: {
+    display: {
+      default: 'none',
+      '@media (min-width: 768px)': 'block',
+    },
+  },
+  mobileHero: {
+    display: {
+      default: 'block',
+      '@media (min-width: 768px)': 'none',
+    },
+  },
+});

@@ -1,5 +1,8 @@
 import { clsx } from 'clsx';
 import Link from 'next/link';
+import * as stylex from '@stylexjs/stylex';
+import { Breakpoints } from '../breakpoints';
+import { fonts } from '../fonts';
 
 interface Breadcrumb {
   label: string;
@@ -14,8 +17,7 @@ export default function Breadcrumbs({
 }) {
   return (
     <nav aria-label="Breadcrumb" className="mb-6 block">
-      {/* ${lusitana.className} */}
-      <ol className={clsx('flex text-xl md:text-2xl')}>
+      <ol {...stylex.props(fonts.lusitanaFont, styles.list)}>
         {breadcrumbs.map((breadcrumb, index) => (
           <li
             key={breadcrumb.href}
@@ -34,3 +36,13 @@ export default function Breadcrumbs({
     </nav>
   );
 }
+
+const md: Breakpoints['md'] = '@media (min-width: 768px)';
+
+const styles = stylex.create({
+  list: {
+    display: 'flex',
+    fontSize: { default: '1.25rem', [md]: '1.5rem' },
+    lineHeight: { default: '1.75rem', [md]: '2rem' },
+  },
+});
